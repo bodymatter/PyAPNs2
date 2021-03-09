@@ -60,6 +60,7 @@ class APNsClient(object):
                          proxy_host: Optional[str], proxy_port: Optional[int]) -> None:
         server = self.SANDBOX_SERVER if use_sandbox else self.LIVE_SERVER
         port = self.ALTERNATIVE_PORT if use_alternative_port else self.DEFAULT_PORT
+        print("Connecting to {}:{}".format(server, port))
         self._connection = self.__credentials.create_connection(server, port, proto, proxy_host, proxy_port)
 
     def _start_heartbeat(self, heartbeat_period: float) -> None:
